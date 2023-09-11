@@ -1,0 +1,246 @@
+/* 基本样式 */
+input,
+button {
+    outline: none !important;
+}
+
+.le-text {
+    color: #75b800;
+}
+
+.le-bg {
+    background: #75b800;
+}
+
+.le-btn {
+    color: #fff;
+    background: #75b800;
+}
+
+
+/* 导航条高度调整 */
+@media (min-width: 768px) {
+    .navbar {
+        min-height: 40px
+    }
+
+    .navbar-nav > li > a {
+        font-size: 12px;
+        font-weight: 700;
+        padding-top: 11px;
+        padding-bottom: 11px
+    }
+
+    .navbar-brand {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 42px;
+        height: 42px
+    }
+}
+
+/* 导航条 */
+.navbar-default {
+    background: #e3e4e5;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.navbar-nav > li:hover {
+    background: #75b800;
+}
+
+.navbar-nav > li:hover > a {
+    color: #fff !important;
+}
+
+/* 红点 */
+.le-red-point {
+    position: relative;
+}
+
+.le-red-point::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    top: 12px;
+    right: 6px;
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #75b800;
+}
+
+.le-red-point:hover::after {
+    background-color: #fff;
+}
+
+/* 导航条按钮 */
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #75b800;
+}
+
+/* 搜索框 */
+
+.le-search-form {
+    margin: 120px auto 30px auto;
+}
+
+.le-search-form input,
+.le-search-form button {
+    border-radius: 0 !important;
+}
+
+.le-search-form .form-control {
+    font-size: 14px;
+    color: #333;
+}
+
+.le-search-form button {
+    min-width: 100px;
+}
+
+/* banner */
+
+.le-banner {
+    margin-top: 10px;
+}
+
+.le-nav-aside {
+    background-color: #e3e4e5;
+
+}
+
+.le-nav-aside li {
+    height: 38px;
+    padding: 0 14px;
+    line-height: 38px;
+}
+
+.le-nav-aside li a {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+}
+
+.le-nav-aside li:hover {
+    background-color: #75b800;
+}
+
+.le-nav-aside li:hover a {
+    color: #fff;
+}
+
+h3.le-header {
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: 4px solid #75b800;
+}
+
+/* 缩略图 */
+.thumbnail {
+    max-width: 320px;
+    border-radius: 0;
+}
+
+.thumbnail .le-price {
+    font-size: 22px;
+    line-height: 20px;
+    margin: 10px auto;
+}
+
+.thumbnail .le-title {
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 13px;
+
+    /* 多行省略 */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.thumbnail .le-shop {
+    height: 20px;
+    color: #646fb0;
+
+    /* 单行省略 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.thumbnail .le-buy {
+    border-radius: 0 !important;
+}
+
+.thumbnail img {
+    width: 220px;
+}
+
+
+.thumbnail:hover {
+    border-color: #75b800;;
+}
+
+
+.le-footter ul {
+    margin-bottom: 20px;
+}
+
+.le-footter h4 {
+    display: inline-block;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-bottom: 3px solid #75b800;
+    color: #75b800;
+}
+
+.le-footter li a {
+    font-size: 13px;
+    color: #333;
+}
+
+.le-footter li:hover a {
+    color: #75b800;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
+
+.dropdown-menu li a:hover {
+    color: #75b800;
+}
+
+.btn, .form-control, .modal-content {
+    border-radius: 0;
+}
+
+/* 分页按钮样式调整 */
+
+#pagination > li > a {
+    border-radius: 0;
+    color: #75b800;
+}
+
+#pagination > .active > a {
+    color: #fff;
+    background-color: #75b800;
+    border-color: #75b800;
+}

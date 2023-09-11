@@ -1,0 +1,272 @@
+input,
+button {
+    outline: none !important;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.btn-default {
+    color: #fff;
+    background-color: #FEAE1B;
+}
+
+.le-text {
+    color: #75b800;
+}
+
+.le-bg {
+    background: #75b800;
+}
+
+.le-btn {
+    color: #fff;
+    background: #75b800;
+}
+
+.le-ad {
+    height: 40px;
+}
+
+.le-ad h4 {
+    margin: 0 auto;
+    line-height: 40px;
+    color: #fff;
+}
+
+/* 导航条高度调整 */
+@media (min-width: 768px) {
+    .navbar {
+        min-height: 40px
+    }
+
+    .navbar-nav > li > a {
+        font-size: 12px;
+        font-weight: 700;
+        padding-top: 11px;
+        padding-bottom: 11px
+    }
+
+    .navbar-brand {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 42px;
+        height: 42px
+    }
+}
+
+/* 导航条 */
+.navbar-default {
+    background: #e3e4e5;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.navbar-nav > li:hover {
+    background: #75b800;
+}
+
+.navbar-nav > li:hover > a {
+    color: #fff !important;
+}
+
+/* 红点 */
+.le-red-point {
+    position: relative;
+}
+
+.le-red-point::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    top: 12px;
+    right: 6px;
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #75b800;
+}
+
+.le-red-point:hover::after {
+    background-color: #fff;
+}
+
+/* 导航条按钮 */
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #75b800;
+}
+
+.le-meal-details {
+    margin-top: 60px;
+}
+
+.thumbnail {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0;
+}
+
+.thumbnail:hover {
+    border-color: #75b800;
+}
+
+
+.thumbnail img {
+    width: 100%;
+}
+
+.le-meal-tilte {
+    height: 50px;
+    line-height: 25px;
+    margin: 0 auto 20px auto;
+    font-size: 16px;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.le-meal-tilte-small {
+    font-size: 12px;
+}
+
+.jumbotron {
+    border-radius: 0 !important;
+    padding: 15px !important;
+
+}
+
+.jumbotron .list-inline {
+    margin: 0;
+}
+
+.jumbotron .list-inline li {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.jumbotron .list-inline li:first-child {
+    width: 70px;
+    color: #999;
+}
+
+
+.le-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #75b800;
+}
+
+.le-icon span {
+    padding: 2px 4px;
+    line-height: 36px;
+    font-size: 12px;
+    border: 1px solid #e3e4e5;
+}
+
+.le-icon span.le-icon-red {
+    color: #C50E1B;
+    border-color: #C50E1B;
+}
+
+.le-icon span.le-icon-yellow {
+    color: #cfae68;
+    border-color: #cfae68;
+}
+
+.le-icon span.le-icon-primary {
+    color: #646fb0;
+    border-color: #646fb0;
+}
+
+.le-sales {
+    padding: 5px 10px;
+    border-left: 1px solid #cbcbcb;
+    font-size: 12px;
+}
+
+dl.dl-horizontal dt {
+    width: 60px;
+    color: #666;
+}
+
+dl.dl-horizontal dd {
+    margin-left: 100px;
+    font-size: 13px;
+}
+
+dl.dl-horizontal dd li a {
+    padding: 1px 2px;
+    color: #C50E1B;
+    border: 1px solid #C50E1B;
+}
+
+.le-top-ad {
+    margin-top: 20px;
+    height: 120px;
+    background-image: url(../img/ad.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.le-footter ul {
+    margin-bottom: 20px;
+}
+
+.le-footter h4 {
+    display: inline-block;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #C50E1B;
+    border-bottom: 3px solid #C50E1B;
+}
+
+.le-footter li a {
+    font-size: 13px;
+    color: #333;
+}
+
+.le-footter li:hover a {
+    color: #75b800;
+}
+
+.le-bottom-ad {
+    margin: 50px auto;
+    height: 700px;
+    background-image: url("https://cdn.cnbj1.fds.api.mi-img.com/product-images/xiaomicivi1sokm6kd/5111.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.le-describe {
+    margin-top: 50px;
+    padding: 50px;
+
+}
+
+.le-describe h4 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #C50E1B;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.le-describe p {
+    font-size: 13px;
+}
+
+.button-caution,
+.button-caution-flat {
+    background: #C50E1B;
+}

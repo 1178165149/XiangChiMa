@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zpark.mapper.CartMapper">
+
+    <resultMap id="baseMap" type="com.zpark.entity.Cart">
+        <id property="cid" column="cid"></id>
+        <result property="uid" column="uid"></result>
+        <result property="mid" column="mid"></result>
+        <result property="cnt" column="cnt"></result>
+        <result property="opttime" column="opttime"></result>
+    </resultMap>
+    
+    <resultMap id="MealMap" type="com.zpark.entity.Cart" extends="baseMap">
+        <association property="meal" column="mid" select="com.zpark.mapper.MealMapper.selectByMid"/>
+    </resultMap>
+
+    <insert id="insert">
+        INSERT INTO xcm_cart (uid, mid, cnt, opttime)
+        VALUES (#{uid}, #{mid}, #{cnt}, NOW())
+    </insert>
+
+    <update id="update">
+        UPDATE xcm_cart
+        SET cnt = #{cnt}, opttime = NOW()
+        WHERE cid = #{cid}
+    </update>
+
+    <select id="select" resultType="com.zpark.entity.Cart">
+        SELECT cid,uid,mid,cnt,opttime                         --  不建议用*
+        FROM xcm_cart
+        where uid = #{uid}
+        AND mid = #{mid}
+    </select>
+
+
+    <select id="selectByUid" resultMap="MealMap">
+        select cid,uid,mid,cnt,opttime                          --  不建议用*
+        FROM xcm_cart
+        where uid = #{uid}
+    </select>
+
+</mapper>

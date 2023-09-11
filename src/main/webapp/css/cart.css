@@ -1,0 +1,157 @@
+.le-text {
+    color: #75b800;
+}
+
+.le-top-ad {
+    background-color: #d4e6f6;
+    margin-top: 45px;
+}
+
+.le-ad-bg {
+    height: 80px;
+    background-image: url('https://img12.360buyimg.com/babel/jfs/t1/132465/4/27814/14847/62654f21E7e9a33af/78f8d1916de48c49.jpg.webp');
+    background-position: center;
+}
+
+.close {
+    background-color: #333;
+    padding: 2px 4px;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        min-height: 40px
+    }
+
+    .navbar-nav > li > a {
+        font-size: 12px;
+        font-weight: 700;
+        padding-top: 11px;
+        padding-bottom: 11px
+    }
+
+    .navbar-brand {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 42px;
+        height: 42px
+    }
+}
+
+.navbar-default {
+    background: #e3e4e5;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.navbar-nav > li:hover {
+    background: #75b800;
+}
+
+.navbar-nav > li:hover > a {
+    color: #fff !important;
+}
+
+/* 红点 */
+.le-red-point {
+    position: relative;
+}
+
+.le-red-point::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    top: 12px;
+    right: 6px;
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #75b800;
+}
+
+.le-red-point:hover::after {
+    background-color: #fff;
+}
+
+/* 导航条按钮 */
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #75b800;
+}
+
+
+.le-cart-list {
+    margin-top: 50px;
+}
+
+.le-cart-list .row {
+    border-bottom: 1px solid #e3e4e5;
+}
+
+.le-cart-list .le-meal-img,
+.le-cart-list .le-meal-title,
+.le-cart-list .le-meal-shop,
+.le-cart-list .le-meal-price,
+.le-cart-list .le-meal-cnt {
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    line-height: 100px;
+}
+
+.le-cart-list .le-meal-img {
+    padding: 5px;
+}
+
+.le-meal-title {
+    text-indent: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #000;
+}
+
+.le-meal-shop {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.le-meal-price {
+    font-size: 16px;
+    color: #75b800;
+}
+
+.le-meal-price::before {
+    content: '￥';
+}
+
+.le-meal-price i {
+    font-style: normal;
+}
+
+.le-meal-cnt {
+    font-size: 16px;
+}
+
+.button-caution,
+.button-caution-flat {
+    background-color: #C50E1B;
+    border-color: #C50E1B;
+}
+
+@media (max-width: 992px) {
+
+    .le-cart-list .le-meal-price,
+    .le-cart-list .le-meal-cnt {
+        line-height: 16px;
+    }
+}

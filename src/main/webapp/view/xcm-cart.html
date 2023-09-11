@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="icon" href="../img/xcm-icon.png"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/buttons.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/alert.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <title>想吃吗购物车</title>
+</head>
+<body>
+
+<!--&lt;!&ndash; 广告 &ndash;&gt;-->
+<!--<div class="le-top-ad">-->
+<!--    <div class="container le-ad-bg">-->
+<!--        <span class="close">&times;</span>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-- nav导航条 -->
+<div id="head"></div>
+
+<!-- 购物车列表 -->
+<div class="container le-cart-list" id="le-cart-list">
+    <!--购物车菜品-->
+
+</div>
+
+<!--菜品总价-->
+<div id="le-cart-handle" class="container hidden" style="margin: 20px auto; text-align: right;">
+    <p style="margin: 0 auto 20px auto; font-size: 30px; color: #C50E1B;">总计：￥<span id="le-sum">00.00</span>
+    </p>
+    <button type="button" class="button button-glow button-highlight" id="le-cart-clear">清空购物车</button>
+    <button type="button" class="button button-glow button-caution" id="le-order">全部下单</button>
+</div>
+
+<!--页脚-->
+<div id="footter" class="container" style="margin-top: 100px;">
+    <hr>
+    <h6 class="text-center">免责声明：本站仅供学习参考使用 备注：数据来源 <a href="https://www.jd.com/">京东</a></h6>
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+    $('.close').click(function () {
+        $('.le-ad-bg').hide();
+    });
+
+    //登录后购物车没有菜品时
+    function emptyCartHandle(){
+        $("#le-cart-list").html('<h1 style="text-align: center; padding: 100px 20px;">您的购物车还没有菜品...</h1>');
+    }
+
+
+    //页面加载操作
+    window.onload = function (){
+
+        //加载导航条
+        $("#head").load("head.html");
+
+        $.ajax({
+            type: 'GET',
+            url: '/xcm/cart',
+            success: function (json){
+                if (json.data.cartList != null && json.data.cartList.length > 0){
+
+                    $("#le-cart-handle").removeClass('hidden');  //取消 隐藏商品总价
+
+                    //总价
+                    let sum = 0;
+                    for (let i = 0; i < json.data.cartList.length; i++){
+
+                        let cart = json.data.cartList[i];
+
+                        //计算购物车总价
+                        sum += cart.meal.price * cart.cnt;
+                        let template =
+                            `
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <img class="le-meal-img" src="${cart.meal.url}">
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="le-meal-title">${cart.meal.title}</h4>
+                                </div>
+                                <div class="col-md-2 hidden-xs hidden-sm">
+                                    <a href="" class="le-meal-shop">${cart.meal.shop}</a>
+                                </div>
+                                <div class="col-md-1 text-center">
+                                    <span class="le-meal-price">${cart.meal.price}</span>
+                                </div>
+                                <div class="col-md-1 hidden-xs hidden-sm">
+                                    <span class="le-meal-cnt">${cart.cnt}</span>
+                                </div>
+                            </div>
+                            `;
+
+                        $("#le-cart-list").append(template);
+                        //购物车总价展示小数后两位
+                        $("#le-sum").html(sum.toFixed(2));
+
+                    }
+
+
+                }else {
+                    //购物车列表没菜品
+                    emptyCartHandle();
+                }
+            },
+            error: function (json){
+                //未登录
+                $('<div>').appendTo('body').addClass('alert alert-danger').html(json.responseText).show().delay(1500).fadeOut();
+            }
+        });
+    }
+
+
+
+</script>
+</html>

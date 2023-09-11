@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="import" href="head.html" class="header-panel" >
+  <link rel="import" href="foot.html">
+  <link rel="icon" href="../img/xcm-icon.png"/>
+  <meta charset="UTF-8">
+  <title>上传菜品</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../css/buttons.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/alert.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+  <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+  <!-- 引入 Bootstrap 3 样式 -->
+<!--  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />-->
+</head>
+<body>
+
+<div id="head" class="bootstrap5"></div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="container text-centre">
+  <div class="row">
+    <div class="col-md-3">
+      <form action="/xcm/meal/upload" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="meal-name" class="form-label">菜品名称</label>
+          <input type="text" class="form-control" id="meal-name" name="mealName" required>
+        </div>
+        <div class="mb-3">
+          <label for="meal-type" class="form-label">菜品类型</label>
+          <select id="meal-type" name="meal-type" class="form-control">
+            <option>热菜</option>
+            <option>凉菜</option>
+            <option>汤羹</option>
+            <option>主食</option>
+            <option>小吃</option>
+            <option>西餐</option>
+            <option>烘焙</option>
+            <option>饮品</option>
+            <option>泡酱腌菜</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="meal-image" class="form-label">菜品图片</label>
+          <input type="file" class="form-control" id="meal-image" name="meal-image" accept="image/*" required>
+        </div>
+        <div class="mb-3">
+          <label for="meal-price" class="form-label">菜品价格</label>
+          <input type="number" class="form-control" id="meal-price" name="meal-price" min="0" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-default">上传</button>
+      </form>
+    </div>
+  </div>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div id="foot" class="bootstrap5"></div>
+<!-- 引入 Bootstrap JavaScript -->
+<script  type="application/javascript">
+
+
+
+  //加载导航条、页脚
+  $(document).ready(function(){
+    $("#head").load("head.html");
+    $("#foot").load("foot.html");
+  });
+
+
+</script>
+</body>
+</html>

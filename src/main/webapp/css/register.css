@@ -1,0 +1,46 @@
+input,
+button {
+    outline: none !important;
+}
+
+.le-text {
+    color: #75b800;
+}
+
+.le-bg {
+    background: #75b800;
+}
+
+.le-btn {
+    color: #fff;
+    background: #75b800;
+}
+
+.le-nav {
+    height: 30px;
+}
+
+.le-nav li {
+    height: 30px;
+    line-height: 30px;
+}
+
+.le-nav a {
+    font-size: 13px;
+    color: #fff;
+}
+
+.le-copyright {
+    margin-top: 60px;
+}
+
+.form-control,
+.btn {
+    border-radius: 0;
+}
+
+/*.imgcontainer {*/
+/*    text-align: center;*/
+/*    margin: 24px 0 12px 0;*/
+/*    position: relative;*/
+/*}*/

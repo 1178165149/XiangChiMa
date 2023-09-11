@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zpark.mapper.UserMapper">
+
+
+    <insert id="add">
+        INSERT INTO xcm_user
+            (username, password, phone, regtime)
+        VALUES
+            (#{username}, #{password}, #{phone}, #{regtime})
+    </insert>
+
+    <select id="selectUserByPhone" resultType="com.zpark.entity.User">
+        SELECT uid, username, `password`, phone, sex, address,email, regtime                         --  不建议用*
+        FROM `xcm_user` where phone= #{phone}
+    </select>
+
+</mapper>

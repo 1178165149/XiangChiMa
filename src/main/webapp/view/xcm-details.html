@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/xcm-details.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/buttons.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/alert.css"/>
+    <link rel="icon" href="../img/xcm-icon.png"/>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <title>菜品详情</title>
+</head>
+<body>
+
+<!-- ad -->
+<div class="le-ad le-bg hidden-xs">
+    <div class="container">
+        <marquee behavior="scroll">
+            <h4>想吃吗平台 盛大开业 欢迎来购 专享7折优惠 惊喜不断。</h4>
+        </marquee>
+    </div>
+</div>
+
+<!-- nav导航条 -->
+<div id="head"></div>
+
+
+<div class="le-top-ad hidden-xs hidden-sm">
+    <button class="close">&times;</button>
+</div>
+
+<!-- 菜品详情 -->
+<div class="container le-meal-details hidden">
+
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img id="le-meal-url"
+                 src="">
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <h4 class="le-meal-title" id="le-meal-title">
+            <span id="le-meal-mid" class="hidden"></span>
+        </h4>
+        <p class="le-text le-meal-tilte-small">【会员专属】0元入会领专属优惠券,1元试用正装！ 【先储值后购物】至高享充值3000元送400元！</p>
+        <p class="le-text le-meal-tilte-small">【好评抽奖】评价抽奖享更多惊喜好礼！点击 <a href="">查看&gt;</a></p>
+
+        <div class="jumbotron">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-10">
+                        <ul class="list-inline">
+                            <li>想 吃 价</li>
+                            <li><span class="le-price">￥<span id="le-meal-price"></span></span></li>
+                        </ul>
+                        <ul class="list-inline le-icon">
+                            <li>促 销</li>
+                            <li><span class="le-icon-red">满减</span></li>
+                            <li><span class="le-icon-red">换购</span></li>
+                            <li><span class="le-icon-yellow">PLUS限购</span></li>
+                            <li><span class="le-icon-primary">满额返券</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 hidden-xs hidden-sm hidden-md">
+                        <div class="le-sales">
+                            累计销量<br><a href="">100万+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 配送 -->
+        <dl class="dl-horizontal hidden-xs hidden-sm">
+            <dt>配送至</dt>
+            <dd>
+                <ul class="list-inline">
+                    <li><a href="" style="border: none; color: #000;">云南丽江 <b>有货</b></a></li>
+                </ul>
+            </dd>
+
+            <dt>支持</dt>
+            <dd>
+                <ul class="list-inline">
+                    <li><a href="">配送闪电快</a></li>
+                    <li><a href="">99元免运费</a></li>
+                    <li><a href="">破损包退换</a></li>
+                    <li><a href="">无防腐剂</a></li>
+                    <li><a href="">绿色保障</a></li>
+                </ul>
+            </dd>
+
+            <dt>想吃吗发货</dt>
+            <dd>
+                <ul class="list-inline">
+                    <li style="color: #646fb0;">现在购买即可享受售后服务保障 18:00 前下单 即可享受98折优惠</li>
+                </ul>
+            </dd>
+        </dl>
+
+        <!-- 按钮 -->
+        <div class="le-choose">
+            <button class="button button-glow button-highlight" id="le-favorite" type="button">收藏</button>
+            <button class="button button-glow button-caution" id="le-add-cart">加入购物车</button>
+        </div>
+    </div>
+
+</div>
+
+
+<!--底部样式-->
+<div class="container-fluid le-describe hidden-xs hidden-sm">
+    <p><b>菜品图片：</b>如无特殊说明，所有菜品请以实物为准；最终解释权归想吃吗食城所有。
+    </p>
+    <p><b>异常问题：</b>菜品促销信息以菜品详情页“促销”栏中的信息为准；菜品的具体售价以订单结算页价格为准；如您发现活动菜品售价或促销信息有异常，建议购买前先联系销售商咨询。</p>
+</div>
+
+<hr>
+
+<!-- footter -->
+<div id="foot"></div>
+
+</body>
+
+<script type="text/javascript">
+
+    //广告条关闭按钮
+    document.querySelector('.close').onclick = function () {
+        this.parentElement.style.display = 'none';
+    }
+
+
+    $(document).ready(function () {
+        //加载导航条、页脚
+        $("#head").load("head.html");
+        $("#foot").load("foot.html");
+
+
+        //处理菜品
+        let url = location.href;
+        let mid = new URL(url).searchParams.get('mid');
+        if (mid == null || mid == ''){
+            location.href = "xcm-index.html";
+        }else {
+
+            $.ajax({
+                type: 'GET',
+                url: `/xcm/meal/${mid}`,
+                success: function (json){
+
+                    if (json.code == 200){
+                        //渲染数据
+                        $('.le-meal-details').removeClass('hidden');
+                        $('#le-meal-url').attr('src', json.data.meal.url);
+                        $('#le-meal-title').html(json.data.meal.title);
+                        $('#le-meal-price').html(json.data.meal.price);
+                        $('#le-meal-mid').html(json.data.meal.mid);
+                    }else {
+                        $('<div>').appendTo('body').addClass('alert alert-danger').html(json.msg).show().delay(1500).fadeOut();
+                    }
+
+                }
+            });
+
+        }
+
+    });
+
+
+    //购物车点击事件
+    $("#le-add-cart").click(function (){
+        $.ajax({
+            type: 'POST',
+            url: '/xcm/cart',
+            data: {
+                mid: new URL(location.href).searchParams.get('mid')
+            },
+            success: function (json){
+                if (json.code == 200){ //加购成功
+                    $('<div>').appendTo('body').addClass('alert alert-success').html(json.msg).show().delay(1500).fadeOut();
+                }else { //加购失败
+                    $('<div>').appendTo('body').addClass('alert alert-warning').html(json.msg).show().delay(1500).fadeOut();
+                }
+            },
+            error: function (json){
+                //未登录
+                $('<div>').appendTo('body').addClass('alert alert-danger').html(json.responseText).show().delay(1500).fadeOut();
+            }
+        });
+    });
+</script>
+</html>

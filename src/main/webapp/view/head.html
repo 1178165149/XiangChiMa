@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/register.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/alert.css"/>
+    <link rel="stylesheet" type="text/css" href="https://static.meishichina.com/v6/css/all.css?v=031">
+    <style>
+
+        .nav_wrap2{
+            color: #000;
+            font: 12px/1.6 "Hiragino Sans GB","STHeiti","Microsoft YaHei",Helvetica,Arial,serif;
+            padding: 0;
+            height: 34px;
+            border-bottom: 1px solid #75b800;
+            border-top: 1px solid #75b800;
+            margin: auto;
+            width: auto;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+<!--导航条-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <a href="xcm-index.html" class="navbar-brand">
+                <span class="glyphicon glyphicon-home le-text"></span>
+                <span class="le-text">想吃吗食城</span>
+            </a>
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#le-nav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+
+        <div class="navbar-collapse collapse" id="le-nav">
+            <ul class="navbar-nav nav hidden-xs">
+                <li><a href="">想吃吗 惊喜 盛大开业 欢迎来购</a></li>
+            </ul>
+
+            <ul class="navbar-nav nav navbar-right">
+                <li><a href="about-us.html">关于想吃吗</a></li>
+                <li><a href="">我的想吃吗</a></li>
+                <li><a href="xcm-cart.html" target="_blank">购物车</a></li>
+                <li class="le-red-point"><a href="">收藏夹</a></li>
+
+                <!-- 当没有登录时 点击会跳转到登录页面 -->
+
+                <!-- 下拉列表阻止a超链接的默认行为 -->
+                <li class="dropdown">
+                    <a data-toggle="modal" data-target="#loginModal" class="dropdown-toggle" id="le-login">登录</a>
+                    <!-- 下拉菜单 -->
+                    <ul class="dropdown-menu">
+                        <li><a href="">个人中心</a></li>
+                        <li><a href="" id="update-pwd" data-toggle="modal" data-target="#bt-modal2">修改密码</a></li>
+                        <li><a href="upload.html" target="_blank">上新菜品</a></li>
+                        <li><a href="" id="le-user-logout" data-toggle="modal" data-target="#bt-modal">退出</a></li>
+                    </ul>
+                </li>
+                <li><a data-toggle="modal" data-target="#registerModal" id="le-register">注册</a></li>
+            </ul>
+        </div>
+        <div class="nav_wrap2">
+            <ul>
+
+                <li><a title="热菜" id="1">热菜</a></li>
+                <li><a title="凉菜" id="2">凉菜</a></li>
+                <li><a title="汤羹" id="3">汤羹</a></li>
+                <li><a title="主食" id="4">主食</a></li>
+                <li><a title="小吃" id="5">小吃</a></li>
+                <li><a title="西餐" id="6">西餐</a></li>
+                <li><a title="烘焙" id="7">烘焙</a></li>
+                <li><a title="饮品" id="8">饮品</a></li>
+                <li><a title="泡酱腌菜" id="9">泡酱腌菜</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--注册模态框-->
+<div class="modal fade" id="registerModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">用户注册</h4>
+            </div>
+            <div class="modal-body">
+                    <form action="" method="post" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label le-text">账号：</label>
+                            <div class="col-md-6">
+                                <input type="text" name="username" id="username" class="form-control"/>
+                            </div>
+                            <div class="col-4">
+                                <p style="color: #75b800" id="usernameMsg"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label le-text">密码：</label>
+                            <div class="col-md-6">
+                                <input type="password" name="password" id="password" class="form-control"/>
+                            </div>
+                            <div class="col-4">
+                                <p style="color: #75b800" id="passwordMsg"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label le-text">手机号：</label>
+                            <div class="col-md-6">
+                                <input type="text" name="phone" id="phone" class="form-control"/>
+                            </div>
+                            <div class="col-4">
+                                <p style="color: #75b800" id="phoneMsg"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label le-text">验证码：</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" name="code" id="captcha" class="form-control"/>
+                                    <div class="input-group-btn">
+                                        <img src="/xcm/captcha" id="captchaImg" width="120" height="36">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <p style="color: #75b800" id="captchaMsg"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-2">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" id="le-user-register" class="btn btn-danger">注册</button>
+                            </div>
+                        </div>
+
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--登录模态框-->
+<div class="modal fade" id="loginModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">用户登录</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label le-text">手机号：</label>
+                        <div class="col-md-6">
+                            <input type="text" id="loginPhone" class="form-control"/>
+                        </div>
+                        <div class="col-4">
+                            <p style="color: #75b800" id="loginPhoneMsg"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label le-text">密码：</label>
+                        <div class="col-md-6">
+                            <input type="password" id="loginPassword" class="form-control"/>
+                        </div>
+                        <div class="col-4">
+                            <p style="color: #75b800" id="loginPasswordMsg"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-2">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" id="le-user-login" class="btn btn-danger">登录</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<script type="application/javascript">
+
+    //分页js
+    function callPaginator(currentPage, pages, callback) {
+        $('#pagination').bootstrapPaginator({
+            bootstrapMajorVersion: 3,
+            size: "normal",
+            alignment: "center",
+            currentPage: currentPage,
+            totalPages: pages,
+            numberOfPages: 5,
+            // 点击页码回调函数
+            onPageClicked: function (event, originalE, type, page) {
+                callback(page, 12, $('#keyword').val());
+                $(window).scrollTop(0);
+            },
+            itemTexts: function (type, page, current) {
+                switch (type) {
+                    case 'first':
+                        return "首页";
+                    case 'prev':
+                        return "上一页";
+                    case 'next':
+                        return "下一页";
+                    case 'last':
+                        return "末页";
+                    case 'page':
+                        return page;
+                }
+            }
+        });
+    }
+
+        //点击刷新验证码
+        $("#captchaImg").click(function (){
+            this.src = '/xcm/captcha?r=' + Math.random(); //带随机数防止浏览器缓存验证码
+        });
+
+
+        //注册点击事件
+        $("#le-user-register").click(function (){
+            $.ajax({
+                type: 'POST',
+                url: '/xcm/users/register',
+                data: {
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                    phone: $("#phone").val(),
+                    code: $("#captcha").val()
+                },
+                success: function (json){
+                    //验证码通过，现在校验user参数
+                    if (json.code == 200){ //注册成功
+                        // alert(json.data.username + ", " + json.msg);
+                        $('<div>').appendTo('body').addClass('alert alert-success').html(json.data.username + ", " + json.msg).show().delay(1500).fadeOut();
+                        setTimeout(function (){
+                            window.location.href = 'xcm-index.html';
+                        }, 2500);
+                    }else { //注册失败
+                        $('<div>').appendTo('body').addClass('alert alert-danger').html(json.msg).show().delay(1500).fadeOut();
+                        $("#usernameMsg").html(json.data.errorMsg.username);
+                        $("#passwordMsg").html(json.data.errorMsg.password);
+                        $("#phoneMsg").html(json.data.errorMsg.phone);
+                    }
+                },
+                error: function (json){
+                    //验证码不通过
+                    $("#captchaMsg").html(json.responseText);
+                }
+            });
+        });
+
+
+        //登录按钮点击事件
+        $("#le-user-login").click(function(){
+            $.ajax({
+                type: 'POST',
+                url: '/xcm/users/login',
+                data:{
+                    phone: $("#loginPhone").val(),
+                    password: $("#loginPassword").val()
+                },
+                success: function (json){
+                    if(json.code == 200){
+                        //登录成功
+                        $('<div>').appendTo('body').addClass('alert alert-success').html(json.msg).show().delay(1500).fadeOut();
+                        setTimeout(function (){
+                            window.location.href = ""; //登录后留在当前页面
+                        }, 2500);
+                    }else {
+                        //登录失败
+                        $('<div>').appendTo('body').addClass('alert alert-danger').html(json.msg).show().delay(1500).fadeOut();
+                        $("#loginPhoneMsg").html(json.data.errorMsg.phone);
+                        $("#loginPasswordMsg").html(json.data.errorMsg.password);
+                    }
+
+                }
+            });
+        });
+
+
+        //页面加载用户名
+        $(document).ready(function (){
+            $.ajax({
+                type: 'GET',
+                url: '/xcm/users',
+                success: function (json){
+                    if (json){
+                        $("#le-login").html(json.username);  //”登录“显示成当前用户昵称
+                        $("#le-login").removeAttr('data-toggle');  //移除 模态框显示
+                        $("#le-login").removeAttr('data-target');   //移除
+                        $("#le-login").attr('data-toggle', 'dropdown'); //改为下拉列表显示
+
+                        $("#le-register").html('会员用户')
+                            .removeAttr('data-toggle')
+                            .removeAttr('data-target'); //隐藏注册功能
+                    }
+                }
+            });
+        });
+
+
+        //退出登录
+        $("#le-user-logout").click(function (){
+            $.ajax({
+                type: 'POST',
+                url: '/xcm/users/logout',
+                success: function (json){
+                    $('<div>').appendTo('body').addClass('alert alert-info').html(json.msg).show().delay(1500).fadeOut();
+                    setTimeout(function (){
+                        window.location.href = "xcm-index.html";
+                    }, 2500);
+                }
+            });
+        });
+
+        //类型点击事件
+        $('#1').click(function (){
+            //搜索菜品
+            getTypeList(1, 12, '热菜')
+        });
+        $('#2').click(function (){
+            //搜索菜品
+            getTypeList(1, 12, '凉菜')
+        });
+        $('#3').click(function (){
+            //搜索菜品
+            getTypeList(1, 12, '汤羹')
+        });
+        $('#4').click(function (){
+            //搜索菜品
+            getTypeList(1, 12, '主食')
+        });
+        $('#5').click(function (){
+            //搜索菜品
+            getTypeList(1, 12, '小吃')
+        });
+        $('#6').click(function (){
+            //搜索菜品
+            getTypeList(1, 12, '西餐')
+        });
+        $('#7').click(function (){
+            //搜索菜品
+            getTypeList(1, 12, '烘焙')
+        });
+        $('#8').click(function (){
+            //搜索菜品
+            getTypeList(1, 12, '饮品')
+        });
+        $('#9').click(function (){
+            //搜索菜品
+            getTypeList(1, 12, '泡酱腌菜')
+        });
+
+        //搜索菜品类型
+        function getTypeList(page, size, type){
+            $.ajax({
+                type: 'GET',
+                url: '/xcm/meal/type',
+                data: {
+                    page: page,
+                    size: size,
+                    type: type
+                },
+                success: function (json){
+                    $('#le-banner').addClass('hidden');
+                    $('#le-search-title').removeClass('hidden');
+
+                    //搜索内容清空
+                    $('#le-search-result').empty();
+
+                    //循环获取菜品列表里的菜品
+                    for(let i = 0; i < json.data.mealList.length; i++) {
+                        //菜品信息
+                        let meal = json.data.mealList[i];
+
+                        let url = '';
+                        url = 'xcm-details.html?mid=' + meal.mid;
+
+                        let template =
+                            `
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                           <div class="thumbnail center-block">
+                           <img src="${meal.url}">
+                        <div class="caption">
+                        <h5 class="le-price le-text">￥${meal.price}</h5>
+                        <p class="le-title">${meal.title}</p>
+                        <p class="le-shop">${meal.shop}</p>
+                        <a href="${url}" target="_blank" class="btn btn-danger btn-xs le-btn le-buy">热卖菜品 火速抢购</a>
+                    </div>
+            </div>
+        </div>
+                    `;
+
+                        $('#le-search-result').append(template);
+
+                    }
+
+                    //显示分页按钮
+                    $('#pagination').removeClass('hidden');
+
+                    // 调用分页按钮
+                    callPaginator(page, json.data.pages, getTypeList);
+                }
+            });
+        }
+
+
+
+</script>
+
+</html>
